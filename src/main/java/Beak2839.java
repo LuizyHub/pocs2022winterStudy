@@ -1,10 +1,11 @@
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
 
 public class Beak2839 {
 
     public static void main(String[] args) throws IOException {
-        int n = new Scanner(System.in).nextInt();
+        int n = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
         int cnt = 0;
         switch (n % 10){
             case 5: case 0:
