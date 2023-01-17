@@ -1,27 +1,41 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Beak2839 {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        int n = new Scanner(System.in).nextInt();
         int cnt = 0;
-
-        while (n >= 0) {
-            if (n % 5 == 0) {
-                cnt += (n / 5);
+        switch (n % 10){
+            case 5: case 0:
+                cnt = n/5;
                 break;
-            }
-            n -= 3;
-            cnt++;
+            case 2 : case 7:
+                if(n<12)
+                    cnt = -1;
+                else
+                    cnt = (n-12)/5 + 4;
+                break;
+            case 3: case 8:
+                if (n<3)
+                    cnt = -1;
+                else
+                    cnt = (n-3)/5 + 1;
+                break;
+            case 6: case 1:
+                if (n<6)
+                    cnt = -1;
+                else
+                    cnt = (n-6)/5 + 2;
+                break;
+            case 9: case 4:
+                if (n<9)
+                    cnt = -1;
+                else
+                    cnt = (n-9)/5 + 3;
+                break;
         }
+        System.out.println(cnt);
 
-        if (n < 0) {
-            System.out.println(-1);
-        } else {
-            System.out.println(cnt);
-        }
     }
 }
